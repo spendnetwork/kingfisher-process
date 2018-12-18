@@ -36,8 +36,8 @@ class Config:
             password = pgpasslib.getpass(
                 self._database_host,
                 self._database_port,
-                self._database_user,
-                self._database_name
+                self._database_name,
+                self._database_user
             )
             if password:
                 self._database_password = password
