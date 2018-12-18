@@ -3,7 +3,7 @@ from sqlalchemy.dialects.postgresql import JSONB
 import datetime
 import json
 import os
-from ocdskingfisherprocess.models import CollectionModel, FileModel
+from ocdskingfisherprocess.models import CollectionModel, FileModel, FileItemModel
 import alembic.config
 from ocdskingfisherprocess.util import get_hash_md5_for_data
 
@@ -229,6 +229,17 @@ class DataBase:
                 out.append(FileModel(
                     database_id=result['id'],
                     filename=result['filename'],
+                ))
+        return out
+
+    def get_all_files_items_in_file(self, file):
+        out = []
+        with self.get_engine().begin() as connection:
+            s = sa.sql.select([self.collection_file_item_table]) \
+                .where(self.collection_file_item_table.c.collection_file_id == file.database_id)
+            for result in connection.execute(s):
+                out.append(FileItemModel(
+                    database_id=result['id'],
                 ))
         return out
 

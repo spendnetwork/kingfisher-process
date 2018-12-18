@@ -17,9 +17,13 @@ class Checks:
             self.process_file(file_model=file_model)
 
     def process_file(self, file_model):
+        for file_item_model in self.database.get_all_files_items_in_file(file_model):
+            self.process_file_item(file_item_model=file_item_model)
+
+    def process_file_item(self, file_item_model):
         with self.database.get_engine().begin() as connection:
             release_rows = connection.execute(
-                self.database.release_table.select().where(self.database.release_table.c.collection_file_status_id == file_model.database_id)
+                self.database.release_table.select().where(self.database.release_table.c.collection_file_item_id == file_item_model.database_id)
             )
 
         for release_row in release_rows:
@@ -30,7 +34,7 @@ class Checks:
 
         with self.database.get_engine().begin() as connection:
             record_rows = connection.execute(
-                self.database.record_table.select().where(self.database.record_table.c.collection_file_status_id == file_model.database_id)
+                self.database.record_table.select().where(self.database.record_table.c.collection_file_item_id == file_item_model.database_id)
             )
 
         for record_row in record_rows:
