@@ -1,4 +1,4 @@
-from ocdskingfisher import database
+from ocdskingfisherprocess import database
 from libcoveocds.api import ocds_json_output, APIException
 import sqlalchemy as sa
 import tempfile

@@ -1,7 +1,7 @@
 from flask import Flask, request
-from ocdskingfisher.config import Config
-from ocdskingfisher.store import Store
-from ocdskingfisher.database import DataBase
+from ocdskingfisherprocess.config import Config
+from ocdskingfisherprocess.store import Store
+from ocdskingfisherprocess.database import DataBase
 import tempfile
 import os
 

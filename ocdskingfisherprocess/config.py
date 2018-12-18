@@ -61,19 +61,17 @@ class Config:
             return
 
     def _load_user_config_env(self):
-        if os.environ.get('KINGFISHER_WEB_API_KEYS'):
-            self.web_api_keys = [key.strip() for key in os.environ.get('KINGFISHER_WEB_API_KEYS').split(',')]
+        if os.environ.get('KINGFISHER_PROCESS_WEB_API_KEYS'):
+            self.web_api_keys = [key.strip() for key in os.environ.get('KINGFISHER_PROCESS_WEB_API_KEYS').split(',')]
 
-        if os.environ.get('DB_URI'):
-            self.database_uri = os.environ.get('DB_URI')
+        if os.environ.get('KINGFISHER_PROCESS_DB_URI'):
+            self.database_uri = os.environ.get('KINGFISHER_PROCESS_DB_URI')
 
     def _load_user_config_ini(self):
         config = configparser.ConfigParser()
 
-        if os.path.isfile(os.path.expanduser('~/.config/ocdskingfisher/config.ini')):
-            config.read(os.path.expanduser('~/.config/ocdskingfisher/config.ini'))
-        elif os.path.isfile(os.path.expanduser('~/.config/ocdsdata/config.ini')):
-            config.read(os.path.expanduser('~/.config/ocdsdata/config.ini'))
+        if os.path.isfile(os.path.expanduser('~/.config/ocdskingfisher-process/config.ini')):
+            config.read(os.path.expanduser('~/.config/ocdskingfisher-process/config.ini'))
         else:
             return
 

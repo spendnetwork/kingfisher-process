@@ -1,7 +1,7 @@
-import ocdskingfisher.cli.commands.base
+import ocdskingfisherprocess.cli.commands.base
 
 
-class UpgradeDataBaseCLICommand(ocdskingfisher.cli.commands.base.CLICommand):
+class UpgradeDataBaseCLICommand(ocdskingfisherprocess.cli.commands.base.CLICommand):
     command = 'upgrade-database'
 
     def configure_subparser(self, subparser):

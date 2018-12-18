@@ -1,5 +1,5 @@
-from ocdskingfisher.database import DataBase
-from ocdskingfisher.config import Config
+from ocdskingfisherprocess.database import DataBase
+from ocdskingfisherprocess.config import Config
 
 
 class BaseTest:

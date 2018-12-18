@@ -1,9 +1,9 @@
-import ocdskingfisher.database
-import ocdskingfisher.cli.commands.base
-from ocdskingfisher.checks import Checks
+import ocdskingfisherprocess.database
+import ocdskingfisherprocess.cli.commands.base
+from ocdskingfisherprocess.checks import Checks
 
 
-class CheckCLICommand(ocdskingfisher.cli.commands.base.CLICommand):
+class CheckCLICommand(ocdskingfisherprocess.cli.commands.base.CLICommand):
     command = 'check-collection'
 
     def configure_subparser(self, subparser):

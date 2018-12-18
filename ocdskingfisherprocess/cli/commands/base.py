@@ -1,4 +1,4 @@
-from ocdskingfisher.database import DataBase
+from ocdskingfisherprocess.database import DataBase
 
 
 class CLICommand:

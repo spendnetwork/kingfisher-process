@@ -1,5 +1,5 @@
 import json
-from ocdskingfisher.database import DatabaseStore
+from ocdskingfisherprocess.database import DatabaseStore
 
 
 class Store:

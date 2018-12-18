@@ -9,7 +9,7 @@ addons:
 env:
     global:
         - PGPORT=5433
-        - DB_URI='postgres:///travis'
+        - KINGFISHER_PROCESS_DB_URI='postgres:///travis'
 services:
     - postgresql
 language: python

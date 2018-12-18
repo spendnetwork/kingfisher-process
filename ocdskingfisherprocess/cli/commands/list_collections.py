@@ -1,7 +1,7 @@
-import ocdskingfisher.cli.commands.base
+import ocdskingfisherprocess.cli.commands.base
 
 
-class ListCollections(ocdskingfisher.cli.commands.base.CLICommand):
+class ListCollections(ocdskingfisherprocess.cli.commands.base.CLICommand):
     command = 'list-collections'
 
     def configure_subparser(self, subparser):

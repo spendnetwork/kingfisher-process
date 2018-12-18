@@ -3,9 +3,9 @@ from sqlalchemy.dialects.postgresql import JSONB
 import datetime
 import json
 import os
-from ocdskingfisher.models import CollectionModel, FileModel
+from ocdskingfisherprocess.models import CollectionModel, FileModel
 import alembic.config
-from ocdskingfisher.util import get_hash_md5_for_data
+from ocdskingfisherprocess.util import get_hash_md5_for_data
 
 
 class SetEncoder(json.JSONEncoder):
