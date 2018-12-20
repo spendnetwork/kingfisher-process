@@ -31,8 +31,8 @@ def api_v1():
     return "OCDS Kingfisher APIs V1"
 
 
-@app.route("/api/v1/submit/", methods=['POST'])
-def api_v1_submit():
+@app.route("/api/v1/submit/file/", methods=['POST'])
+def api_v1_submit_file():
     # TODO this allows GET API_KEY values only, allow POST and header too!
     api_key = request.args.get('API_KEY')
     if not api_key or api_key not in config.web_api_keys:
