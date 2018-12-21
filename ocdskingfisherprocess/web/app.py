@@ -33,7 +33,7 @@ def api_v1():
 
 @app.route("/api/v1/submit/file/", methods=['POST'])
 def api_v1_submit_file():
-    print(request)
+    app.logger.info(request)
     # TODO this allows GET API_KEY values only, allow POST and header too!
     api_key = request.args.get('API_KEY')
     if not api_key or api_key not in config.web_api_keys:
@@ -70,7 +70,7 @@ def api_v1_submit_file():
 
 @app.route("/api/v1/submit/item/", methods=['POST'])
 def api_v1_submit_item():
-    print(request)
+    app.logger.info(request)
     # TODO this allows GET API_KEY values only, allow POST and header too!
     api_key = request.args.get('API_KEY')
     if not api_key or api_key not in config.web_api_keys:

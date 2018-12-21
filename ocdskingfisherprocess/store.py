@@ -10,9 +10,6 @@ class Store:
         self.database = database
 
     def load_collection(self, collection_source, collection_data_version, collection_sample):
-        print("------------------------")
-        print(collection_source)
-        print(collection_data_version)
         self.collection_id = self.database.get_or_create_collection_id(collection_source, collection_data_version, collection_sample)
 
     def store_file_from_local(self, filename, url, data_type, encoding, local_filename):
