@@ -28,7 +28,7 @@ def api():
 
 @app.route("/api/v1/")
 def api_v1():
-    return "OCDS Kingfisher APIs V1"
+    return "OCDS Kingfisher APIs V1 **DEBUGGING**"
 
 
 @app.route("/api/v1/submit/file/", methods=['POST'])
