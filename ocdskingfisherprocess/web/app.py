@@ -41,31 +41,33 @@ def api_v1_submit_file():
 
     # TODO check all required fields are there!
 
-    database = DataBase(config=config)
-    store = Store(config=config, database=database)
+    return request
 
-    store.load_collection(
-        request.form.get('collection_source'),
-        request.form.get('collection_data_version'),
-        True if request.form.get('collection_sample', '0') in ['1'] else False,
-    )
+    # database = DataBase(config=config)
+    # store = Store(config=config, database=database)
 
-    (tmp_file, tmp_filename) = tempfile.mkstemp(prefix="ocdskf-")
-    os.close(tmp_file)
+    # store.load_collection(
+    #     request.form.get('collection_source'),
+    #     request.form.get('collection_data_version'),
+    #     True if request.form.get('collection_sample', '0') in ['1'] else False,
+    # )
 
-    request.files['file'].save(tmp_filename)
+    # (tmp_file, tmp_filename) = tempfile.mkstemp(prefix="ocdskf-")
+    # os.close(tmp_file)
 
-    store.store_file_from_local(
-        request.form.get('file_name'),
-        request.form.get('file_url'),
-        request.form.get('file_data_type'),
-        request.form.get('file_encoding'),
-        tmp_filename
-    )
+    # request.files['file'].save(tmp_filename)
 
-    os.remove(tmp_filename)
+    # store.store_file_from_local(
+    #     request.form.get('file_name'),
+    #     request.form.get('file_url'),
+    #     request.form.get('file_data_type'),
+    #     request.form.get('file_encoding'),
+    #     tmp_filename
+    # )
 
-    return "OCDS Kingfisher APIs V1 Submit"
+    # os.remove(tmp_filename)
+
+    # return "OCDS Kingfisher APIs V1 Submit"
 
 
 @app.route("/api/v1/submit/item/", methods=['POST'])
