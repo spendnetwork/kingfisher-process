@@ -41,7 +41,8 @@ def api_v1_submit_file():
 
     # TODO check all required fields are there!
 
-    return request
+    with open("requestlogs/{}.log".format(datetime.datetime.utcnow(), "a")) as logfile:
+        f.write(request)
 
     # database = DataBase(config=config)
     # store = Store(config=config, database=database)
