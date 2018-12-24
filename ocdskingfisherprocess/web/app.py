@@ -41,7 +41,7 @@ def api_v1_submit_file():
         return "ACCESS DENIED"  # TODO proper error
 
     # TODO check all required fields are there!
-    logpath = os.path.join(ROOT, "requestlogs", datetime.datetime.utcnow().strftime("%Y%m%d-%H%M%S"), '.log')
+    logpath = os.path.join(ROOT, "requestlogs", datetime.datetime.utcnow().strftime("%Y%m%d-%H%M%S")+".log")
     with open(logpath, "w+") as logfile:
         f.write(request)
 
