@@ -47,8 +47,9 @@ def api_v1_submit_file():
             logfile.write(request.form)
             logfile.write(request.form.get('collection_source'))
             logfile.write(request.files['file'])
+            logfile.write("asdf!")
             logfile.write(request.method)
-            logfile.write(request.args)
+            logfile.write(request.args.get('API_KEY'))
         except:
             print(request.form)
 
