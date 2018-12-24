@@ -44,9 +44,9 @@ def api_v1_submit_file():
     logpath = os.path.join(ROOT, "requestlogs", datetime.datetime.utcnow().strftime("%Y%m%d-%H%M%S")+".log")
     with open(logpath, "w+") as logfile:
         try:
-            logfile.write(request)
+            logfile.write(request.form)
         except:
-            print(request)
+            print(request.form)
 
     # database = DataBase(config=config)
     # store = Store(config=config, database=database)
