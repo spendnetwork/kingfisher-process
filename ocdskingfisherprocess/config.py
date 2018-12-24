@@ -8,6 +8,7 @@ import sys
 Whatever tool is calling it - CLI or other code - should create one of these, set it up as required and pass it around.
 """
 
+ROOT = os.path.abspath(os.path.dirname(__file__))
 
 class Config:
 

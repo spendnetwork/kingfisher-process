@@ -1,5 +1,5 @@
 from flask import Flask, request
-from ocdskingfisherprocess.config import Config
+from ocdskingfisherprocess.config import Config, ROOT
 from ocdskingfisherprocess.store import Store
 from ocdskingfisherprocess.database import DataBase
 import tempfile
@@ -41,8 +41,8 @@ def api_v1_submit_file():
         return "ACCESS DENIED"  # TODO proper error
 
     # TODO check all required fields are there!
-
-    with open("requestlogs/{}.log".format(datetime.datetime.utcnow(), "a")) as logfile:
+    logpath = os.path.join(ROOT, "requestlogs", datetime.datetime.utcnow().strftime("%Y%m%d-%H%M%S"), '.log')
+    with open(logpath, "w+")) as logfile:
         f.write(request)
 
     # database = DataBase(config=config)
