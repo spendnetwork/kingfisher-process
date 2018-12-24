@@ -45,6 +45,10 @@ def api_v1_submit_file():
     with open(logpath, "w+") as logfile:
         try:
             logfile.write(request.form)
+            logfile.write(request.form.get('collection_source'))
+            logfile.write(request.files['file'])
+            logfile.write(request.method)
+            logfile.write(request.args)
         except:
             print(request.form)
 
