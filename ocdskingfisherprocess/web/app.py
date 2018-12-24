@@ -41,7 +41,7 @@ def api_v1_submit_file():
         return "ACCESS DENIED"  # TODO proper error
 
     # TODO check all required fields are there!
-    logpath = os.path.join(ROOT, "requestlogs", datetime.datetime.utcnow().strftime("%Y%m%d-%H%M%S")+".log")
+    logpath = os.path.join(ROOT, "requestlogsasdf", datetime.datetime.utcnow().strftime("%Y%m%d-%H%M%S")+".log")
     with open(logpath, "w+") as logfile:
         try:
             logfile.write(request.form)
@@ -52,6 +52,8 @@ def api_v1_submit_file():
             logfile.write(request.args.get('API_KEY'))
         except:
             print(request.form)
+            print(request.form.get('collection_source'))
+            print(request.method)
 
     # database = DataBase(config=config)
     # store = Store(config=config, database=database)
