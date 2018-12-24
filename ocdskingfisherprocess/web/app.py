@@ -42,18 +42,18 @@ def api_v1_submit_file():
 
     # TODO check all required fields are there!
     logpath = os.path.join(ROOT, "requestlogsasdf", datetime.datetime.utcnow().strftime("%Y%m%d-%H%M%S")+".log")
-    with open(logpath, "w+") as logfile:
-        try:
+    try:
+        with open(logpath, "w+") as logfile:
             logfile.write(request.form)
             logfile.write(request.form.get('collection_source'))
             logfile.write(request.files['file'])
             logfile.write("asdf!")
             logfile.write(request.method)
             logfile.write(request.args.get('API_KEY'))
-        except:
-            print(request.form)
-            print(request.form.get('collection_source'))
-            print(request.method)
+    except:
+        print(request.form)
+        print(request.form.get('collection_source'))
+        print(request.method)
 
     # database = DataBase(config=config)
     # store = Store(config=config, database=database)
@@ -79,7 +79,7 @@ def api_v1_submit_file():
 
     # os.remove(tmp_filename)
 
-    # return "OCDS Kingfisher APIs V1 Submit"
+    return "OCDS Kingfisher APIs V1 Submit"
 
 
 @app.route("/api/v1/submit/item/", methods=['POST'])
