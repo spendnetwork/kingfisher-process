@@ -51,8 +51,8 @@ def api_v1_submit_file():
             logfile.write(request.method)
             logfile.write(request.args.get('API_KEY'))
     except:
-        print(request.form.to_dict()) ## HERENOW upload this
-
+        print(request.form.to_dict())
+        print(request.args.get('API_KEY'))
         print(request.method)
 
     # database = DataBase(config=config)
