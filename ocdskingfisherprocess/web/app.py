@@ -49,7 +49,8 @@ def api_v1_submit_file():
         # print(request.form.to_dict())
         print(request.headers)
         print('------------')
-        # print(request.data)
+        print(request.data)
+        print('------------')
         print(request.get_json(force=True))
 
     # database = DataBase(config=config)
