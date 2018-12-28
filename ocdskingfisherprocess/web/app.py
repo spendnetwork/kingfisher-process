@@ -46,11 +46,11 @@ def api_v1_submit_file():
         with open(logpath, "w+") as logfile:
             logfile.write(request.form.to_dict())
     except:
-        print(request.form.to_dict())
-        print('------------')
-        print(request.data)
+        # print(request.form.to_dict())
         print(request.headers)
-        print(request.files.to_dict())
+        print('------------')
+        # print(request.data)
+        print(request.get_json(force=True))
 
     # database = DataBase(config=config)
     # store = Store(config=config, database=database)
