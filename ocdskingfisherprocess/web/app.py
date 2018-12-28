@@ -47,7 +47,9 @@ def api_v1_submit_file():
             logfile.write(request.form.to_dict())
     except:
         print(request.form.to_dict())
+        print('------------')
         print(request.data)
+        print(request.content_type)
 
     # database = DataBase(config=config)
     # store = Store(config=config, database=database)
