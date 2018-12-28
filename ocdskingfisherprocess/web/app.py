@@ -50,6 +50,7 @@ def api_v1_submit_file():
         print('------------')
         print(request.data)
         print(request.headers)
+        print(request.files)
 
     # database = DataBase(config=config)
     # store = Store(config=config, database=database)
