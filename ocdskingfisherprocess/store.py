@@ -1,7 +1,7 @@
 import json
 from ocdskingfisherprocess.database import DatabaseStore
 from ocdskingfisherprocess.util import FileToStore
-
+import redis
 
 class Store:
 
@@ -24,6 +24,7 @@ class Store:
         self.collection_id = None
         self.collection = None
         self.database = database
+        self.redis = redis.Redis(host=config.redis_host, port=self.redis_port, db=self.redis_database) if config.redis_host else None
 
     def load_collection(self, collection_source, collection_data_version, collection_sample):
         self.collection_id = self.database.get_or_create_collection_id(collection_source, collection_data_version, collection_sample)
