@@ -9,7 +9,10 @@ For more info, please see https://kingfisher-process.readthedocs.io/en/latest/
 For the "Scrape" side, please see https://github.com/open-contracting/kingfisher-scrape
 
 
+# Webapps0 server
+
 FLASK_APP=ocdskingfisherprocess.web.app FLASK_ENV=development KINGFISHER_PROCESS_WEB_API_KEYS=cat flask run --host 0 --port 9090
+FLASK_APP=ocdskingfisherprocess.web.app FLASK_ENV=development KINGFISHER_PROCESS_WEB_API_KEYS=1234 flask run --host 0 --port 9090
 flask run --host 0 --port 9090
 
 
@@ -20,25 +23,19 @@ python ocdskingfisher-process-cli local-load 7 /home/snbot/git/kingfisher-scrape
 
 
 scrapy crawl mexico_administracion_publica_federal
-scrapy crawl uk_contracts_finder
+scrapy crawl chile_compra_releases
 
 
 python ocdskingfisher-process-cli new-collection mexico_administracion_publica_federal  "2019-05-09 16:00:00"
 
+### Delete old collections
+
 python ocdskingfisher-process-cli delete-collection 2
-python ocdskingfisher-process-cli delete-collection 3
-python ocdskingfisher-process-cli delete-collection 4
-python ocdskingfisher-process-cli delete-collection 5
-python ocdskingfisher-process-cli delete-collection 6
-
 python ocdskingfisher-process-cli delete-collections
 
-python ocdskingfisher-process-cli delete-collection 13
-python ocdskingfisher-process-cli delete-collection 12
-python ocdskingfisher-process-cli delete-collection 11
-python ocdskingfisher-process-cli delete-collection 10
-python ocdskingfisher-process-cli delete-collection 9
-python ocdskingfisher-process-cli delete-collection 8
+# Web interface 
+Setup nginx for
 
-python ocdskingfisher-process-cli delete-collections
+104.155.19.156:5000
+104.155.19.156:9090
 
